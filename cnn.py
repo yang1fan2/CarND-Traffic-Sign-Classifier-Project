@@ -40,7 +40,7 @@ def LeNet(x):
     sigma = 0.1
     
     # SOLUTION: Layer 1: Convolutional. Input = 32x32x1. Output = 28x28x6.
-    conv1_W = tf.get_variable("conv1_w2",[5,5,3,32],initializer=tf.glorot_normal_initializer())
+    conv1_W = tf.get_variable("conv1_w2",[5,5,3,32],initializer=tf.contrib.layers.xavier_initializer())
     conv1_b = tf.Variable(tf.zeros(32))
     conv1   = tf.nn.conv2d(x, conv1_W, strides=[1, 1, 1, 1], padding='SAME') + conv1_b
 
@@ -51,7 +51,7 @@ def LeNet(x):
     conv1 = tf.nn.max_pool(conv1, ksize=[1, 2, 2, 1], strides=[1, 1, 1, 1], padding='SAME')
 
     # SOLUTION: Layer 2: Convolutional. Output = 10x10x16.
-    conv2_W = tf.get_variable("conv2_w2",[5,5,32,64],initializer=tf.glorot_normal_initializer())
+    conv2_W = tf.get_variable("conv2_w2",[5,5,32,64],initializer=tf.contrib.layers.xavier_initializer())
     conv2_b = tf.Variable(tf.zeros(64))
     conv2   = tf.nn.conv2d(conv1, conv2_W, strides=[1, 1, 1, 1], padding='SAME') + conv2_b
     
@@ -65,7 +65,7 @@ def LeNet(x):
     fc0   = flatten(conv2)
     
     # SOLUTION: Layer 3: Fully Connected. Input = 400. Output = 120.
-    fc1_W = tf.get_variable("fc1_w2",[65536,1024],initializer=tf.glorot_normal_initializer())
+    fc1_W = tf.get_variable("fc1_w2",[65536,1024],initializer=tf.contrib.layers.xavier_initializer())
     fc1_b = tf.Variable(tf.zeros(1024))
     fc1   = tf.matmul(fc0, fc1_W) + fc1_b
     
@@ -73,7 +73,7 @@ def LeNet(x):
     fc1    = tf.nn.relu(fc1)
     fc2 = tf.nn.dropout(fc1,keep_prob=0.4)
     # SOLUTION: Layer 5: Fully Connected. Input = 84. Output = 43.
-    fc3_W  = tf.get_variable("fc3_w2",[1024,n_classes],initializer=tf.glorot_normal_initializer())
+    fc3_W  = tf.get_variable("fc3_w2",[1024,n_classes],initializer=tf.contrib.layers.xavier_initializer())
     fc3_b  = tf.Variable(tf.zeros(n_classes))
     logits = tf.matmul(fc2, fc3_W) + fc3_b
     
