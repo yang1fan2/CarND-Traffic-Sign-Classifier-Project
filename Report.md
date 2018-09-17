@@ -101,6 +101,7 @@ My final model results were:
 * training set accuracy of 99.6%
 * validation set accuracy of 93.3%
 * test set accuracy of 91.9%
+
 It is calculated in my python notebook (i.e. Traffic_Sign_Classifier.ipynb).
 
 In the beginning, I used Lenet5 but both training and validation accuracy is low. So the Lenet5 is underfitting the data (with validation accuracy ~87%). Then I took a look at Mnist dataset and found several similiarities:
