@@ -82,7 +82,7 @@ My final model consisted of the following layers:
 | Max pooling	 2x2    	| 1x1 stride, same padding outputs 32x32x32 				|
 | Convolution 5x5	    | 1x1 stride, same padding, outputs 32x32x64						|
 | RELU |
-| Max pooling	 2x2    	| 1x1 stride, same padding outputs 32x32x32 				|
+| Max pooling	 2x2    	| 1x1 stride, same padding outputs 32x32x64 				|
 | Flatten |
 | Fully connected		| outputs 1024    									|
 | Dropout | probability = 0.5 |
